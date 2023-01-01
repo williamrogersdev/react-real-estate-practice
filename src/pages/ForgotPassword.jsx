@@ -1,22 +1,33 @@
 // import React from 'react'
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import OAuth from "../components/OAuth";
 
 export default function ForgotPassword() {
   //hook for showing password
 
-
   const [email, setEmail] = useState("");
-
 
   //onchagne function. gets all info we are getting in the form
   //Whatever is typed is saved inside form data
 
   function onChange(event) {
- setEmail(event.target.value)
-    };
-  
+    setEmail(event.target.value);
+  }
+
+  async function onSubmit(event) {
+    event.preventDefault();
+
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+      toast.success("Email Has Been Sent!");
+    } catch (error) {
+      toast.error("Could not Send Email. Please contact support");
+    }
+  }
 
   return (
     <section>
@@ -30,7 +41,7 @@ export default function ForgotPassword() {
           />
         </div>
         <div className="w-full md-w-[67%] lg:w-[40%] lg:ml-20">
-          <form>
+          <form onSubmit={onSubmit}>
             <input
               type="email"
               id="email"
@@ -39,7 +50,7 @@ export default function ForgotPassword() {
               placeholder="Email address"
               className=" mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
             />
-        
+
             <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
               <p className="mb-6">
                 Don't have an account?
@@ -69,7 +80,7 @@ export default function ForgotPassword() {
             <div className=" flex items-center my-4 before:border-t before:flex-1  before:border-gray-400 after:border-t after:flex-1  after:border-gray-400">
               <p className="text-center font-semibold mx-4">OR</p>
             </div>
-            <OAuth/>
+            <OAuth />
           </form>
         </div>
       </div>
