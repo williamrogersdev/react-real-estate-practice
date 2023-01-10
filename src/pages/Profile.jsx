@@ -153,7 +153,7 @@ function onEdit(listingID) {
 
               <p
                 onClick={onLogout}
-                className="text-blue-600 hover:text-blue-400 transition duration-200 ease-in-out cursor-pointer"
+                className="text-blue-600 ml-2 hover:text-blue-400 transition duration-200 ease-in-out cursor-pointer"
               >
                 Sign Out
               </p>
