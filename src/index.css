@@ -8,7 +8,7 @@ body {
 
 .swiper-button-next:after,
 .swiper-button-prev:after{
-    color: #a8dadc;
+    color: red;
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
