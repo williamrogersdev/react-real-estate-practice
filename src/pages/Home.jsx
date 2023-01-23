@@ -7,6 +7,8 @@ import {
   where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ListingItem from "../components/ListingItem";
 import Slider from "../components/Slider";
 import { db } from "../firebase";
 
@@ -41,10 +43,7 @@ export default function Home() {
         });
 
         setOfferListing(listings);
-        console.log(listings);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     }
 
     fetchListings();
@@ -53,6 +52,28 @@ export default function Home() {
   return (
     <div>
       <Slider />
+      <div className="max-w-6xl mx-auto pt-4 space-y-6">
+        {offerListing && offerListing.length > 0 && (
+          <div className="m-2 mb-6">
+            <h2 className="px-3 text-2xl mt-6 font-semibold ">Recent Offers</h2>
+            <Link to="/offers">
+              <p className="px-3 text-sm text-blue-600 hover:text-blue-900">
+                Show More Offers
+              </p>
+            </Link>
+
+            <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {offerListing.map((listing) => (
+                <ListingItem
+                  key={listing.id}
+                  listing={listing.data}
+                  id={listing.id}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
