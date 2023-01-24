@@ -1,4 +1,4 @@
-# Real Estate Listing App Using React,js 
+# Real Estate Listing App Using React.js, firebase, and tailwind css
 
 This project is just for fun/practice and not a real listing site 
 
