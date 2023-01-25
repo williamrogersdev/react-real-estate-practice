@@ -55,13 +55,31 @@ export default function Header() {
             >
               Home
             </li>
+          
+           
             <li
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                 pathMatchRoute("/offers") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/offers")}
             >
-              Offers
+              Recent Offers
+            </li>
+            <li
+              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                pathMatchRoute("/category/rent") && "text-black border-b-red-500"
+              }`}
+              onClick={() => navigate("/category/rent")}
+            >
+              Rentals
+            </li>
+            <li
+              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                pathMatchRoute("/category/sale") && "text-black border-b-red-500"
+              }`}
+              onClick={() => navigate("/category/sale")}
+            >
+              For Sale
             </li>
             <li
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
