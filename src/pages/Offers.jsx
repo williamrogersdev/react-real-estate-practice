@@ -1,4 +1,11 @@
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -18,15 +25,23 @@ export default function Offers() {
           orderBy("timestamp", "desc"),
           limit(8)
         );
-        const querySnap = await getDocs(q)
+        const querySnap = await getDocs(q);
 
-        
+        const listings = [];
+
+        querySnap.forEach((doc) => {
+          return listings.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
       } catch (error) {
         toast.error("Could not fetch listings");
       }
     }
 
-    fetchListings();
+    fetchListings(listings);
+    setLoading(false)
   }, []);
 
   return <div>Offers</div>;
