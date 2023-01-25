@@ -2,12 +2,11 @@
 
 This project is just for fun/practice and not a real listing site 
 
-## To Start
+#
 
-In the project directory, you can run:
+## Site is Live At:
 
-### `npm start`
-
+    [Vercel](https://react-real-estate-practice-olnh.vercel.app/)
 
 ## How to Use
 
