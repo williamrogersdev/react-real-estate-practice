@@ -7,7 +7,7 @@ This project is just for fun/practice and not a real listing site
 ## Site is Live At:
 
     
-[Vercel](https://react-real-estate-practice-olnh.vercel.app/)
+[React Real Estate Vercel](https://react-real-estate-practice-olnh.vercel.app/)
 
 ## How to Use
 
